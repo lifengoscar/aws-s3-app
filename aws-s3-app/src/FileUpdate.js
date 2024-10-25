@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './FileUpload.css';
 
 function FileUpdate() {
   const [formData, setFormData] = useState({

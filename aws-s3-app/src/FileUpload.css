@@ -1,0 +1,25 @@
+.FileUpload {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    form {
+      display: inline-block;
+      text-align: left;
+    }
+    
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+    
+    button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    
