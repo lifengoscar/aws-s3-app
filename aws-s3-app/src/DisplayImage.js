@@ -15,14 +15,15 @@ const FileList = () => {
         const fetchFiles = async () => {
             try {
                 const response = await axios.get(apiUrl);
-                setFiles(response.data); // Assuming the response structure matches the mapped JSON
+                console.log(response.data); // Log the entire response data
+                setFiles(response.data); 
                 setLoading(false);
             } catch (err) {
                 setError(err);
                 setLoading(false);
             }
         };
-
+        
         fetchFiles();
     }, []); // Empty dependency array to run once on mount
 
@@ -35,17 +36,30 @@ const FileList = () => {
     }
 
     return (
-        <div>
-            <h1>Uploaded Files</h1>
-            <div className="image-grid">
-                {files.map((file) => (
-                    <div key={file.fileID} className="image-item">
-                        <img src={file.fileUrl} alt={file.fileName} />
-                        <p>{file.fileName}:{file.fileUrl}</p> 
-                    </div>
-                ))}
-            </div>
-        </div>
+      <div>
+      <h1>Uploaded Files</h1>
+      <div className="file-grid">
+      {files.map((file) => (
+    <div key={file.fileID} className="file-item">
+        {/* Check if the file is a video based on its URL or type */}
+        {file.fileUrl.endsWith('.mp4') ? (
+            <video controls width="300">
+                <source src={file.fileUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        ) : (
+            <img src={file.fileUrl} alt={file.fileName} />
+        )}
+        <p>
+            {file.twitterAuthor ? file.twitterAuthor : 'Unknown Author'}: 
+            {file.prompt ? ` ${file.prompt}` : ' No prompt available'}
+        </p>
+    </div>
+))}
+
+      </div>
+  </div>
+  
     );
 };
 
