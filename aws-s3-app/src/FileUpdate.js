@@ -36,7 +36,7 @@ function FileUpdate() {
     const reader = new FileReader();
     reader.onloadend = async () => {
       const base64Content = reader.result.split(',')[1]; // Get base64 content without the prefix
-      const response = await fetch('https://6id9e761z5.execute-api.us-east-1.amazonaws.com/test/upload', {
+      const response = await fetch(process.env.REACT_APP_FILE_UPLOAD_API, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

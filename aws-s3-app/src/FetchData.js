@@ -8,7 +8,7 @@ function FetchData() {
   // Function to fetch files from the Lambda API
   const fetchFiles = async () => {
     try {
-      const response = await fetch('https://gx9yuy30yd.execute-api.us-east-1.amazonaws.com/prod/fetchfiledata', {
+      const response = await fetch('https://gx9yuy30yd.execute-api.us-east-1.amazonaws.com/prod/fetchfiledata' , {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

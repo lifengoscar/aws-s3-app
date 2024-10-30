@@ -17,8 +17,14 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const submit_form_api = process.env.REACT_APP_SUBMIT_FORM_API;
+      
+      if (!submit_form_api) {
+        console.error('API URL is not set');
+        return;
+    }
       const response = await axios.post(
-        'https://dx0fa0fcrc.execute-api.us-east-1.amazonaws.com/prod/submit-form',  // Replace with your actual API Gateway URL
+        `${submit_form_api}/submit-form`,  // Replace with your actual API Gateway URL
         formData,
         {
           headers: {
@@ -29,6 +35,12 @@ function App() {
       setResponseMessage(response.data.message);
     } catch (error) {
       console.error('Error submitting form:', error);
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        console.error('Response data:', error.response.data);
+        console.error('Response status:', error.response.status);
+        console.error('Response headers:', error.response.headers);
+    }
       setResponseMessage('Error submitting form.');
     }
   };
