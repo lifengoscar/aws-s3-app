@@ -1,0 +1,71 @@
+/* Center the title and add some space below it */
+h1 {
+  text-align: center;      /* Center the title */
+  font-size: 24px;        /* Font size */
+  font-weight: bold;      /* Make the font bold */
+  margin-top: 20px;       /* Space above the title */
+  margin-bottom: 10px;    /* Space below the title */
+}
+
+/* Center the entire grid in the middle of the page */
+.file-container {
+  display: flex;
+  flex-direction: column;  /* Stack items vertically */
+  align-items: center;      /* Center align items */
+  width: 100%;              /* Full width */
+}
+
+/* Adjust the grid layout for a two-column display */
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Fixed two columns */
+  gap: 16px;                           /* Space between items */
+  width: 60%;                          /* Take up 60% of the page width */
+  margin-top: 20px;                   /* Space above the grid */
+}
+
+/* Individual item styling */
+.file-item {
+  display: flex;                     /* Use flexbox for inner content */
+  flex-direction: column;            /* Stack video and caption vertically */
+  align-items: center;               /* Center items horizontally */
+  padding: 0;                       /* No padding for clean look */
+}
+
+/* Video styling */
+.video-element {
+  width: 100%;              /* Full width of the item */
+  height: auto;            /* Maintain aspect ratio */
+  border: none;            /* No border */
+  object-fit: contain;      /* Keep original aspect ratio */
+}
+
+/* Caption styling */
+.caption {
+  display: flex;           /* Flexbox layout */
+  align-items: center;     /* Center items vertically */
+  justify-content: center;  /* Center items horizontally */
+  font-size: 14px;         /* Caption font size */
+  color: #333;             /* Caption text color */
+  margin-top: 5px;        /* Space above the caption */
+}
+
+/* Space between caption text and download icon */
+.caption span {
+  margin-right: 8px;       /* Space between title and download icon */
+}
+
+/* Download icon styling */
+.download-icon {
+  font-size: 18px;         /* Icon size */
+  color: #333;             /* Icon color */
+  text-decoration: none;    /* No underline */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 800px) {
+  .file-grid {
+      width: 90%;           /* Adjust width for smaller screens */
+      grid-template-columns: 1fr; /* Stack items in a single column */
+  }
+}

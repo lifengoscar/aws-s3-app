@@ -35,7 +35,7 @@ function FileUpdate() {
     // Read the file content as a base64 string
     const reader = new FileReader();
     reader.onloadend = async () => {
-      const base64Content = reader.result.split(',')[1]; // Get base64 content without the prefix
+      const base64Content = reader.result.split(',')[1]; 
       const response = await fetch(process.env.REACT_APP_FILE_UPLOAD_API, {
         method: 'POST',
         headers: {
@@ -56,7 +56,7 @@ function FileUpdate() {
       }
     };
 
-    reader.readAsDataURL(file); // This will trigger onloadend once the file is read
+    reader.readAsDataURL(file); 
   };
 
   return (

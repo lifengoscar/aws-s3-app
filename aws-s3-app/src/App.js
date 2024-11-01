@@ -19,12 +19,13 @@ function App() {
     try {
       const submit_form_api = process.env.REACT_APP_SUBMIT_FORM_API;
       
+      
       if (!submit_form_api) {
         console.error('API URL is not set');
         return;
     }
       const response = await axios.post(
-        `${submit_form_api}/submit-form`,  // Replace with your actual API Gateway URL
+        `${submit_form_api}/submit-form`, 
         formData,
         {
           headers: {
@@ -36,7 +37,7 @@ function App() {
     } catch (error) {
       console.error('Error submitting form:', error);
       if (error.response) {
-        // The request was made and the server responded with a status code
+        
         console.error('Response data:', error.response.data);
         console.error('Response status:', error.response.status);
         console.error('Response headers:', error.response.headers);
@@ -47,7 +48,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>React AWS S3 Application</h1>
+      <h1>Subscribe to our Newsletter for the Latest AI-generated Videos</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name: </label>

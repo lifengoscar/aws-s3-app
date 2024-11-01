@@ -1,6 +1,6 @@
+require('dotenv').config({ path: '.env.playwright' });
 const { chromium } = require('playwright');
 const axios = require('axios');
-require('dotenv').config();
 
 
 
@@ -12,8 +12,12 @@ async function waitForResponsePredicate(response) {
 }
 
 const twitterList = [
-  "https://twitter.com/duborges/status/1758196706733068326",
-  // Add other Twitter URLs as needed
+  "https://x.com/mamboitaliano__/status/1852073347707998317",
+  "https://x.com/javilopen/status/1851361418857365974",
+  "https://x.com/mamboitaliano__/status/1852155448709009571",
+
+
+
 ];
 
 (async () => {
@@ -21,7 +25,8 @@ const twitterList = [
   const context = await browser.newContext({ viewport: { width: 1920, height: 1080 } });
   const page = await context.newPage();
 
-  await page.goto("https://baidu.com"); // Initial load to avoid issues
+  // Initial load to avoid issues
+  await page.goto("https://baidu.com"); 
   await sleep(1000);
 
   for (const url of twitterList) {
@@ -41,7 +46,16 @@ const twitterList = [
         .sort((a, b) => b.bitrate - a.bitrate)[0]?.url;
 
       // Check if highestBitrateUrl and API URL are valid
-      const apiUrl = process.env.REACT_APP_TWITTER_PLAYWRIGHT_API;
+      const apiUrl = process.env.TWITTER_PLAYWRIGHT_API;
+      
+
+      console.log("API_URL environment variable:", process.env.TWITTER_PLAYWRIGHT_API);
+
+      if (!apiUrl) {
+        console.error("API URL is undefined");
+        return; 
+    }
+    console.log("API URL:", apiUrl);
       if (highestBitrateUrl && apiUrl) {
         console.log(`Sending metadata for tweet ID ${twitterId} to API: ${apiUrl}`);
         const metadata = {
