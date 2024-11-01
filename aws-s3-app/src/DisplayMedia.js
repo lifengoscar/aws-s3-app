@@ -37,7 +37,7 @@ const FileList = () => {
 
     return (
       <div className="file-container">
-    <h1>Your Video Gallery</h1>
+    <h1>Recent AI-generated videos</h1>
     <div className="file-grid">
         {files.map((file) => (
             <div key={file.fileID} className="file-item">
@@ -54,7 +54,6 @@ const FileList = () => {
     </div>
 </div>
 
-  
     );
 };
 

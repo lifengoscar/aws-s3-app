@@ -1,71 +1,68 @@
-/* Center the title and add some space below it */
+
 h1 {
-  text-align: center;      /* Center the title */
-  font-size: 24px;        /* Font size */
-  font-weight: bold;      /* Make the font bold */
-  margin-top: 20px;       /* Space above the title */
-  margin-bottom: 10px;    /* Space below the title */
+  text-align: center;      
+  font-size: 16px;        
+  font-weight: bold;      
+  margin-top: 20px;       
+  margin-bottom: 10px;    
 }
 
-/* Center the entire grid in the middle of the page */
+
 .file-container {
   display: flex;
-  flex-direction: column;  /* Stack items vertically */
-  align-items: center;      /* Center align items */
-  width: 100%;              /* Full width */
+  flex-direction: column;  
+  align-items: center;     
+  width: 100%;             
 }
 
-/* Adjust the grid layout for a two-column display */
+
 .file-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Fixed two columns */
-  gap: 16px;                           /* Space between items */
-  width: 60%;                          /* Take up 60% of the page width */
-  margin-top: 20px;                   /* Space above the grid */
+  column-count: 2;                  
+  column-gap: 16px;                 
+  width: 60%;                       
+  margin-top: 20px;               
 }
 
-/* Individual item styling */
+
 .file-item {
-  display: flex;                     /* Use flexbox for inner content */
-  flex-direction: column;            /* Stack video and caption vertically */
-  align-items: center;               /* Center items horizontally */
-  padding: 0;                       /* No padding for clean look */
+  break-inside: avoid;               
+  margin-bottom: 16px;               
 }
 
-/* Video styling */
+
 .video-element {
-  width: 100%;              /* Full width of the item */
-  height: auto;            /* Maintain aspect ratio */
-  border: none;            /* No border */
-  object-fit: contain;      /* Keep original aspect ratio */
+  width: 100%;             
+  height: auto;           
+  border: none;           
+  object-fit: contain;    
 }
 
-/* Caption styling */
+
 .caption {
-  display: flex;           /* Flexbox layout */
-  align-items: center;     /* Center items vertically */
-  justify-content: center;  /* Center items horizontally */
-  font-size: 14px;         /* Caption font size */
-  color: #333;             /* Caption text color */
-  margin-top: 5px;        /* Space above the caption */
+  display: flex;           
+  align-items: center;     
+  justify-content: center;  
+  font-size: 14px;        
+  color: #333;           
+  margin-top: 5px;        
 }
 
-/* Space between caption text and download icon */
+
 .caption span {
-  margin-right: 8px;       /* Space between title and download icon */
+  margin-right: 8px;       
 }
 
-/* Download icon styling */
+
 .download-icon {
-  font-size: 18px;         /* Icon size */
-  color: #333;             /* Icon color */
-  text-decoration: none;    /* No underline */
+  font-size: 18px;        
+  color: #333;            
+  text-decoration: none;  
 }
 
-/* Responsive adjustments for smaller screens */
+
 @media (max-width: 800px) {
   .file-grid {
-      width: 90%;           /* Adjust width for smaller screens */
-      grid-template-columns: 1fr; /* Stack items in a single column */
+      column-count: 1;         
+      width: 90%;            
   }
 }

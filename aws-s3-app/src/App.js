@@ -47,10 +47,14 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Subscribe to our Newsletter for the Latest AI-generated Videos</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="form-container">
+      <h1 className='form-title'>Subscribe to our Newsletter for the Latest AI-generated Videos</h1>
+      <div className="newsletter-info">
+        <p>Be the first to know about new videos and exciting developments from AI-videos. Sign up for our newsletter and stay up-to-date with the latest news and updates. Don't miss out, subscribe now!</p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="input-form">
+        {/* <div>
           <label>Name: </label>
           <input
             type="text"
@@ -59,21 +63,23 @@ function App() {
             onChange={handleChange}
             required
           />
-        </div>
-        <div>
-          <label>Email: </label>
+        </div> */}
+        <div className="form-group">
+          {/* <label>Email: </label> */}
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
+            placeholder="Enter your email"
             required
           />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      {responseMessage && <p>{responseMessage}</p>}
+         <button type="submit">Submit</button>
     </div>
+    
+  </form>
+  {responseMessage && <p className="response-message">{responseMessage}</p>}
+</div>
   );
 }
 
